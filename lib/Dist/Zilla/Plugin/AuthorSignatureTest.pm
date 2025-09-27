@@ -9,7 +9,23 @@ use warnings;
 use Moose;
 
 extends 'Dist::Zilla::Plugin::InlineFiles';
-with 'Dist::Zilla::Role::PrereqSource';
+with (
+    'Dist::Zilla::Role::PrereqSource',
+    'Dist::Zilla::Role::FileMunger',
+    'Dist::Zilla::Role::TextTemplate',
+);
+
+has force => (
+        is       => 'ro',
+        isa      => 'Bool',
+        default  => sub { 0; },
+);
+
+=head1 SYNOPSIS
+
+   [AuthorSignatureTest]
+   force = false
+
 
 =head1 DESCRIPTION
 
@@ -21,16 +37,44 @@ following files:
 This test uses L<Test::Signature> to test the SIGNATURE file in your dist.  If
 L<Test::Signature> is not installed, the test is skipped.
 
+
+=head1 ATTRIBUTES
+
+=head2 force
+
+E.g. C<force = true>
+
+By default L<Test::Signature>::signature_ok does not make test fail if it cannot perform it,
+for example, because of missing B<SIGNATURE> file, missing package L<Module::Signature>
+or not able to make connection to the key server.
+
+Turn on this feature to make test fail also in the above cases.
+
+
 =for Pod::Coverage register_prereqs
 
 =cut
 
 sub register_prereqs {
     my $self = shift;
-
     $self->zilla->register_prereqs(
         { type => 'requires', phase => 'develop' },
         'Test::Signature' => 0);
+}
+
+sub munge_file {
+    my $self = shift;
+    my ($file) = @_;
+
+    return unless $file->name eq 'xt/author/signature.t';
+    $file->content(
+        $self->fill_in_string(
+            $file->content,
+            {
+                force => $self->force ? q{force_} : q{},
+            }
+        )
+    );
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -49,5 +93,5 @@ unless (eval { require Test::Signature; 1 }) {
     plan skip_all => 'Test::Signature is required for this test';
 }
 
-Test::Signature::signature_ok();
+Test::Signature::signature_{{ $force ? 'force_' : '' }}ok();
 done_testing;
