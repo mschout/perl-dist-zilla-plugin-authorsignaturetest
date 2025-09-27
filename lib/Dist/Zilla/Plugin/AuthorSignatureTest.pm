@@ -29,7 +29,7 @@ has force => (
 
 =head1 DESCRIPTION
 
-This is an extensionof L<Dist::Zilla::Plugin::InlineFile>, providing the
+This is an extension of L<Dist::Zilla::Plugin::InlineFile>, providing the
 following files:
 
    xt/author/signature.t - a standard Test::Signature test
