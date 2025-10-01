@@ -16,9 +16,9 @@ with (
 );
 
 has force => (
-        is       => 'ro',
-        isa      => 'Bool',
-        default  => sub { 0; },
+    is       => 'ro',
+    isa      => 'Bool',
+    default  => sub { 0 },
 );
 
 =head1 SYNOPSIS
