@@ -93,5 +93,5 @@ unless (eval { require Test::Signature; 1 }) {
     plan skip_all => 'Test::Signature is required for this test';
 }
 
-Test::Signature::signature_{{ $force ? 'force_' : '' }}ok();
+Test::Signature::signature_{{ $force }}ok();
 done_testing;
