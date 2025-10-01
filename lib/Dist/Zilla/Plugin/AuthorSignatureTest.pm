@@ -51,7 +51,7 @@ or not able to make connection to the key server.
 Turn on this feature to make test fail also in the above cases.
 
 
-=for Pod::Coverage register_prereqs
+=for Pod::Coverage register_prereqs munge_file
 
 =cut
 
