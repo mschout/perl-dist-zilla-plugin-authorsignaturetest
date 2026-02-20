@@ -47,6 +47,7 @@ sub munge_file {
     );
 
     use Data::Dumper;
+    warn "Is bytes? ", $file->is_bytes ? 'yes' : 'no';
     warn Dumper(\%vars);
 
     my $rendered_file = $self->fill_in_string($file->content, \%vars);
