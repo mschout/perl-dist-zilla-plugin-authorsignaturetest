@@ -66,7 +66,13 @@ sub munge_file {
     my $self = shift;
     my ($file) = @_;
 
-    return unless $file->name eq 'xt/author/signature.t';
+    # depending on if ExtraTests ran first, the file might
+    # be named xt/author/signature.t, or might be named t/author-signature.t
+    return unless (
+      $file->name eq 'xt/author/signature.t' ||
+      $file->name eq 't/author-signature.t'
+    );
+
     $file->content(
         $self->fill_in_string(
             $file->content,
