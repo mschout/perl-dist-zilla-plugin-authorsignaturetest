@@ -17,6 +17,7 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.006",
   "NAME" => "Dist::Zilla::Plugin::AuthorSignatureTest",
   "PREREQ_PM" => {
+    "Data::Dumper" => 0,
     "Dist::Zilla::Plugin::InlineFiles" => 0,
     "Dist::Zilla::Role::FileMunger" => 0,
     "Dist::Zilla::Role::PrereqSource" => 0,
@@ -38,6 +39,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "Data::Dumper" => 0,
   "Dist::Zilla::Plugin::InlineFiles" => 0,
   "Dist::Zilla::Role::FileMunger" => 0,
   "Dist::Zilla::Role::PrereqSource" => 0,

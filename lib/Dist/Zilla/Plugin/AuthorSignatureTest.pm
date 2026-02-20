@@ -46,6 +46,9 @@ sub munge_file {
         force => $self->force ? q{force_} : q{},
     );
 
+    use Data::Dumper;
+    warn Dumper(\%vars);
+
     $file->content(
         $self->fill_in_string(
             $file->content,

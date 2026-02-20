@@ -8,6 +8,7 @@ META.yml
 Makefile.PL
 README
 SIGNATURE
+jnk.pl
 lib/Dist/Zilla/Plugin/AuthorSignatureTest.pm
 t/attribute-force.t
 t/author-pod-coverage.t
