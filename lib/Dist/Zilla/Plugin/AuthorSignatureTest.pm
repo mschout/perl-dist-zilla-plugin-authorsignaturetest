@@ -46,7 +46,10 @@ sub munge_file {
             $file->content,
             {
                 force => $self->force ? q{force_} : q{},
-            }
+            },
+              {
+                force => $self->force ? q{force_} : q{},
+              }
         )
     );
 }
