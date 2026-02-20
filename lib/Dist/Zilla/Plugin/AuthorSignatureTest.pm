@@ -40,6 +40,8 @@ sub munge_file {
     my $self = shift;
     my ($file) = @_;
 
+    warn "Processing file: ", $file->name;
+
     return unless $file->name eq 'xt/author/signature.t'
      || $file->name eq 't/author/signature.t';
 
