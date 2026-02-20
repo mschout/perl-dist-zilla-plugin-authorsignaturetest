@@ -18,8 +18,8 @@ use Moose;
 extends 'Dist::Zilla::Plugin::InlineFiles';
 with (
     'Dist::Zilla::Role::PrereqSource',
-    'Dist::Zilla::Role::FileMunger',
     'Dist::Zilla::Role::TextTemplate',
+    'Dist::Zilla::Role::FileMunger',
 );
 
 has force => (
