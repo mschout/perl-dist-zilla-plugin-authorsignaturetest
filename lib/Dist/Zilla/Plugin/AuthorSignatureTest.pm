@@ -7,7 +7,7 @@
 # the same terms as the Perl 5 programming language system itself.
 #
 package Dist::Zilla::Plugin::AuthorSignatureTest;
-$Dist::Zilla::Plugin::AuthorSignatureTest::VERSION = '0.03';
+$Dist::Zilla::Plugin::AuthorSignatureTest::VERSION = '0.04';
 # ABSTRACT: An Author Distribution C<SIGNATURE> Test for L<Dist::Zilla>
 
 use strict;
@@ -63,7 +63,7 @@ Dist::Zilla::Plugin::AuthorSignatureTest - An Author Distribution C<SIGNATURE> T
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
