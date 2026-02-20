@@ -40,8 +40,6 @@ sub munge_file {
     my $self = shift;
     my ($file) = @_;
 
-    warn "Munging file: ", $file->name, "\n";
-
     # depending on if ExtraTests ran first, the file might
     # be named xt/author/signature.t, or might be named t/author-signature.t
     return unless (
@@ -49,22 +47,14 @@ sub munge_file {
       $file->name eq 't/author-signature.t'
     );
 
-    my %vars = (
-        force => $self->force ? q{force_} : q{},
+    $file->content(
+        $self->fill_in_string(
+            $file->content,
+            {
+                force => $self->force ? q{force_} : q{},
+            }
+        )
     );
-
-    use Data::Dumper;
-    warn Dumper(\%vars);
-
-    my $rendered_file = $self->fill_in_string($file->content, \%vars);
-    warn "RENDERED: ", $rendered_file;
-    warn  "=====";
-
-    $file->content($rendered_file);
-    $file->encoded_content($rendered_file);
-
-    warn "Updated content: ", $file->content;
-    warn "=====";
 }
 
 __PACKAGE__->meta->make_immutable;

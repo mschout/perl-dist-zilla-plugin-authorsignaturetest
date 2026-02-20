@@ -34,7 +34,6 @@
       },
       "runtime" : {
          "requires" : {
-            "Data::Dumper" : "0",
             "Dist::Zilla::Plugin::InlineFiles" : "0",
             "Dist::Zilla::Role::FileMunger" : "0",
             "Dist::Zilla::Role::PrereqSource" : "0",
