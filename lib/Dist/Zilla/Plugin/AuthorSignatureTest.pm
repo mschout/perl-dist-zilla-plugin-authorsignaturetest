@@ -54,6 +54,7 @@ sub munge_file {
     warn  "=====";
 
     $file->content($rendered_file);
+    $file->encoded_content($rendered_file);
 
     warn "Updated content: ", $file->content;
     warn "=====";
