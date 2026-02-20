@@ -40,6 +40,7 @@ sub munge_file {
     my $self = shift;
     my ($file) = @_;
 
+    warn "Munging file: ", $file->name, "\n";
     # depending on on ordering of when we are called, the file might be in
     # t/ or xt/ so we need to check for both
     return unless $file->name =~ qr|^x?t/author/signature\.t$|;
