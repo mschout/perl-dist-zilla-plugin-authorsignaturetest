@@ -15,13 +15,12 @@ use warnings;
 
 use Moose;
 
+extends 'Dist::Zilla::Plugin::InlineFiles';
 with (
     'Dist::Zilla::Role::PrereqSource',
     'Dist::Zilla::Role::TextTemplate',
     'Dist::Zilla::Role::FileMunger',
 );
-
-extends 'Dist::Zilla::Plugin::InlineFiles';
 
 has force => (
     is       => 'ro',
