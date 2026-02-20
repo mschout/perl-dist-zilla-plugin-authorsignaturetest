@@ -49,14 +49,9 @@ sub munge_file {
     use Data::Dumper;
     warn Dumper(\%vars);
 
-    warn $self->fill_in_string($file->content, \%vars);
-
-    $file->content(
-        $self->fill_in_string(
-            $file->content,
-            \%vars,
-        )
-    );
+    my $rendered_file = $self->fill_in_string($file->content, \%vars);
+    warn $rendered_file;
+    $file->content($rendered_file);
 }
 
 __PACKAGE__->meta->make_immutable;
