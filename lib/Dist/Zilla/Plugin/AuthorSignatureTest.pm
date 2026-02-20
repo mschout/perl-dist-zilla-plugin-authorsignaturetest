@@ -41,6 +41,7 @@ sub munge_file {
     my ($file) = @_;
 
     return unless $file->name eq 'xt/author/signature.t';
+    warn "Content: ", $file->content;
     $file->content(
         $self->fill_in_string(
             $file->content,
