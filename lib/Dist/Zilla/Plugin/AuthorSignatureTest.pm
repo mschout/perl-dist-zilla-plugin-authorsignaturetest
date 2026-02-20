@@ -50,8 +50,13 @@ sub munge_file {
     warn Dumper(\%vars);
 
     my $rendered_file = $self->fill_in_string($file->content, \%vars);
-    warn $rendered_file;
+    warn "RENDERED: ", $rendered_file;
+    warn  "=====";
+
     $file->content($rendered_file);
+
+    warn "Updated content: ", $file->content;
+    warn "=====";
 }
 
 __PACKAGE__->meta->make_immutable;
