@@ -43,7 +43,7 @@ sub munge_file {
     warn "Processing file: ", $file->name;
 
     return unless $file->name eq 'xt/author/signature.t'
-     || $file->name eq 't/author/signature.t';
+     || $file->name eq 't/author-signature.t';
 
     my %vars = (
         force => $self->force ? q{force_} : q{},
