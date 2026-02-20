@@ -49,6 +49,8 @@ sub munge_file {
     use Data::Dumper;
     warn Dumper(\%vars);
 
+    warn $self->fill_in_string($file->content, \%vars);
+
     $file->content(
         $self->fill_in_string(
             $file->content,
